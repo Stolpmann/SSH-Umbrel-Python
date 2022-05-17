@@ -1,9 +1,10 @@
 import paramiko
+import secrets
 
-host = "umbrel.local"
-port = 22
-username = "umbrel"
-password = "123Blizzard!"
+host = secrets.host
+port = secrets.port
+username = secrets.username
+password = secrets.password
 
 command = "docker exec bitcoin bitcoin-cli getmininginfo"
 
