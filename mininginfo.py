@@ -17,9 +17,9 @@ stdin, stdout, stderr = ssh.exec_command(command)
 lines = stdout.readlines()
 
 
-
 blocks = lines[1]
 x = lines[2]
+
 # function for rounding hashrate
 
 def hash_rounder():
@@ -29,7 +29,7 @@ def hash_rounder():
     if len(z) > 10:
         z = z[:-10]
         z = z[:2] + '.' + z[2:]
-        return z + ' TH/s'
+        return 'Difficulty: ' + z + ' T'
     else:
         return False
 
