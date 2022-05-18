@@ -32,7 +32,7 @@ while len(txid) < 64:
     txid = input("Enter TXID: ")
 
 x = find_transaction(txid)
-
+x = str(x)
 x = x[1:-2]
 
 command2 = f"docker exec bitcoin bitcoin-cli getrawtransaction {x} true"
