@@ -1,6 +1,5 @@
 import paramiko
 import secrets
-#import pandas as pd
 
 host = secrets.host
 port = secrets.port
@@ -22,20 +21,24 @@ blockheight = int(blockheight[0])
 print(blockheight)
 
 
-stats = """'["totalfee","avgfeerate", "avgfee"]'"""
-
-x = 700000
 
 
-lst = []
 
-while x < 700100:
-    command2 = f"docker exec bitcoin bitcoin-cli getblockstats {x} {stats}"
-    stdin, stdout, stderr = ssh.exec_command(command2)
-    blockstats = stdout.readlines()
-    lst.append([blockstats[1:4]])
-    print(blockstats)
-    x += 1
+
+def scraper():
+    stats = """'["totalfee","avgfeerate", "avgfee"]'"""
+    x = 700000
+    lst = []
+
+    while x < 700100:
+        command2 = f"docker exec bitcoin bitcoin-cli getblockstats {x} {stats}"
+        stdin, stdout, stderr = ssh.exec_command(command2)
+        blockstats = stdout.readlines()
+        lst.append([blockstats[1:4]])
+        print(blockstats)
+        x += 1
+
+
 
 print(lst)
 print(len(lst))
