@@ -53,9 +53,9 @@ utxo_size_inc = []
 
 def scraper():
     # stats = """'["totalfee","avgfeerate", "avgfee" ]'"""
-    x = 700000
+    x = 703600
 
-    while x < 700010:
+    while x < 703610:
         command2 = f"docker exec bitcoin bitcoin-cli getblockstats {x}"
         stdin, stdout, stderr = ssh.exec_command(command2)
         blockstats = stdout.readlines()
@@ -63,7 +63,7 @@ def scraper():
         avgfeerate.append([blockstats[2]])
         avgtxsize.append([blockstats[3]])
         blockhash.append([blockstats[4]])
-        height.append([blockstats[10]])
+        height.append([blockstats[12]])
         ins.append([blockstats[13]])
         maxfee.append([blockstats[14]])
         maxfeerate.append([blockstats[15]])
@@ -115,10 +115,5 @@ print(df[['avgfee', 'avgfeerate', "avgtxsize", "blockhash",
 
 df.to_csv('blockchain_data.csv', index=False)
 
-# command2 = f"docker exec bitcoin bitcoin-cli getblockstats {blockheight} {stats}"
-# stdin, stdout, stderr = ssh.exec_command(command2)
-# blockstats = stdout.readlines()
-#
-# print(blockstats)
 
 del stdin
