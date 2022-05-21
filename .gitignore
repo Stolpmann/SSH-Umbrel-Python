@@ -3,3 +3,4 @@ venv/
 .idea/
 secrets.py
 blockchain_data.csv
+.ipynb_checkpoints/
