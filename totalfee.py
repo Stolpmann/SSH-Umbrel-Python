@@ -55,7 +55,7 @@ def scraper():
     # stats = """'["totalfee","avgfeerate", "avgfee" ]'"""
     x = 703600
 
-    while x < 703610:
+    while x < 703700:
         command2 = f"docker exec bitcoin bitcoin-cli getblockstats {x}"
         stdin, stdout, stderr = ssh.exec_command(command2)
         blockstats = stdout.readlines()
