@@ -1,6 +1,6 @@
 import paramiko
-import secrets
 import pandas as pd
+import secrets
 
 host = secrets.host
 port = secrets.port
@@ -22,6 +22,6 @@ print(lines)
 
 df = pd.DataFrame(lines)
 
-df.to_csv('supply.csv')
+df.to_csv('supply/supply.csv')
 
 del stdin

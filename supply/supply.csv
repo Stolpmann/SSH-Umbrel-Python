@@ -1,2 +1,21 @@
-,height,best_block,tx_outs,bogosize,hash_serialized_2,total_amount,transactions,disk_size
-1,737470.0,000000000000000000088405d64c9ed7a43844f21e9b42ae2eedab3897fc1f1c,82045289.0,6125093730.0,88e8d39b3645d055d384518a469e46d319b220810029778098bd28b156244fcc,19046479.0,49427921.0,5001310906.0
+,0
+0,"{
+"
+1,"  ""height"": 737497,
+"
+2,"  ""bestblock"": ""000000000000000000007baf137f4c9a82e9124292aca662eb3a0e1fa6185216"",
+"
+3,"  ""txouts"": 82035401,
+"
+4,"  ""bogosize"": 6124377401,
+"
+5,"  ""hash_serialized_2"": ""460d351e956a6ea0e19fe89cea30f8c526f76dac2e3071411f1fb56d72fe59dd"",
+"
+6,"  ""total_amount"": 19046648.42921805,
+"
+7,"  ""transactions"": 49428312,
+"
+8,"  ""disk_size"": 4987801170
+"
+9,"}
+"

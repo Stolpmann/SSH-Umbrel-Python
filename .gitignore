@@ -4,3 +4,4 @@ venv/
 secrets.py
 blockchain_data.csv
 .ipynb_checkpoints/
+supply.ipynb_checkpoints/
