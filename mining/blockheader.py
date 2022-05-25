@@ -14,7 +14,6 @@ ssh.connect(host, port, username, password)
 df = pd.read_csv("block_stats/clean_block_data.csv")
 
 hashes = df['blockhash'].tolist()
-print(hashes)
 lst = []
 
 def getblockheader():

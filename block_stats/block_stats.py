@@ -53,9 +53,9 @@ utxo_size_inc = []
 
 def scraper():
     # stats = """'["totalfee","avgfeerate", "avgfee" ]'"""
-    x = 703600
+    x = 1
 
-    while x < 703700:
+    while x < 5000:
         command2 = f"docker exec bitcoin bitcoin-cli getblockstats {x}"
         stdin, stdout, stderr = ssh.exec_command(command2)
         blockstats = stdout.readlines()
@@ -88,7 +88,6 @@ def scraper():
         utxo_increase.append([blockstats[34]])
         utxo_size_inc.append([blockstats[35]])
 
-        print(blockstats)
         x += 1
 
 
@@ -106,14 +105,14 @@ df = pd.DataFrame(list(zip(avgfee,avgfeerate,avgtxsize,blockhash,height,ins,maxf
                          "swtotal_weight", "swtxs", "time", "total_out", "total_size",
                          "total_weight", "totalfee", "txs", "utxo_increase", "utxo_size_inc"])
 
-print(df[['avgfee', 'avgfeerate', "avgtxsize", "blockhash",
-                         "height", "ins", "maxfee", "maxfeerate", "maxtxsize",
-                         "medianfee", "mediantime", "mediantxsize", "minfee",
-                         "minfeerate", "mintxsize", "outs", "subsidy", "swtotal_size",
-                         "swtotal_weight", "swtxs", "time", "total_out", "total_size",
-                         "total_weight", "totalfee", "txs", "utxo_increase", "utxo_size_inc"]])
+# print(df[['avgfee', 'avgfeerate', "avgtxsize", "blockhash",
+#                          "height", "ins", "maxfee", "maxfeerate", "maxtxsize",
+#                          "medianfee", "mediantime", "mediantxsize", "minfee",
+#                          "minfeerate", "mintxsize", "outs", "subsidy", "swtotal_size",
+#                          "swtotal_weight", "swtxs", "time", "total_out", "total_size",
+#                          "total_weight", "totalfee", "txs", "utxo_increase", "utxo_size_inc"]])
 
-df.to_csv('blockchain_data.csv', index=False)
+df.to_csv('mining/blockchain_data.csv', index=False)
 
 
 del stdin
