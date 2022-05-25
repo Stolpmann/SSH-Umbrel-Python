@@ -8,3 +8,4 @@ Dashboard Ideas:
 - Last difficulty change
 - total block TX fees
 - Halving Estimate
+
