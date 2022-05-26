@@ -11,8 +11,11 @@ ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh.connect(host, port, username, password)
 
+# reads clean block data
 df = pd.read_csv("block_stats/clean_block_data.csv")
 
+
+# Iterates using blockhash to call block header rpc command
 hashes = df['blockhash'].tolist()
 lst = []
 

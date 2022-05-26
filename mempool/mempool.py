@@ -18,6 +18,8 @@ stdin, stdout, stderr = ssh.exec_command(command)
 lines = stdout.readlines()
 
 
+# prompts user for TXID and then loops through to check mempool
+
 def find_transaction(txid):
     transaction = [i for i in lines if txid in i]
     if len(transaction) != 0:
@@ -34,6 +36,7 @@ while len(txid) < 64:
 x = find_transaction(txid)
 x = str(x)
 x = x[1:-2]
+
 
 command2 = f"docker exec bitcoin bitcoin-cli getrawtransaction {x} true"
 
