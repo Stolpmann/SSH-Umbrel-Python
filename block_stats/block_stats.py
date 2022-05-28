@@ -57,9 +57,9 @@ utxo_size_inc = []
 # calls rpc function and appends results to initialized
 
 def scraper():
-    x = 730000
+    x = 1
 
-    while x < 731000:
+    while x < 80000:
         command2 = f"docker exec bitcoin bitcoin-cli getblockstats {x}"
         stdin, stdout, stderr = ssh.exec_command(command2)
         blockstats = stdout.readlines()
