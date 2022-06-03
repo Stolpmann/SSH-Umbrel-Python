@@ -1,43 +1,33 @@
 import paramiko
 import secrets
+import pandas as pd
 
 host = secrets.host
 port = secrets.port
 username = secrets.username
 password = secrets.password
 
-command = "docker exec bitcoin bitcoin-cli getmininginfo"
-
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh.connect(host, port, username, password)
 
 
-stdin, stdout, stderr = ssh.exec_command(command)
-lines = stdout.readlines()
+networkhashps = []
+
+def scraper():
+    x = 1
+    while x < 25:
+        command = f"docker exec bitcoin bitcoin-cli getnetworkhashps -1 {x}"
+        stdin, stdout, stderr = ssh.exec_command(command)
+        hashps = stdout.readlines()
+        print(hashps)
+        networkhashps.append([hashps[0]])
+        x += 1
+scraper()
+
+df = pd.DataFrame(networkhashps)
 
 
-blocks = lines[1]
-x = lines[2]
+df.to_csv('mining/networkhashps.csv', index=False)
 
-# function for rounding hashrate
-
-def hash_rounder():
-    z = x.split()
-    z = z[1]
-    z = z[:-4]
-    if len(z) > 10:
-        z = z[:-10]
-        z = z[:2] + '.' + z[2:]
-        return 'Difficulty: ' + z + ' T'
-    else:
-        return False
-
-
-j = hash_rounder()
-print(j)
-
-print(blocks)
-print(lines)
-
-del stdin
+print(networkhashps)

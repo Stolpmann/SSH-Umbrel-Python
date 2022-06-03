@@ -1,2 +1,7 @@
-,height,best_block,tx_outs,bogosize,hash_serialized_2,total_amount,transactions,disk_size,total,issuance_remaining
-0,737497,000000000000000000007baf137f4c9a82e9124292aca662eb3a0e1fa6185216,82035401,6124377401,460d351e956a6ea0e19fe89cea30f8c526f76dac2e3071411f1fb56d72fe59dd,19046648,49428312,4987801170,21000000,1953352
+Height,737497
+UTXOs,82035401
+Circulating Supply,19046648
+Transactions,49428312
+Disk Size,4987801170
+Total,21000000
+Issuance Remaining,1953402
