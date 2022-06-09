@@ -18,5 +18,33 @@ lines = stdout.readlines()
 
 print(lines)
 
+df = pd.DataFrame(lines, columns =['Name', 'Age'])
+
+df.to_csv('mempool/memdata.csv')
+# transactionid = []
+# vsize = []
+# weight = []
+# fee = []
+# modifiedfee = []
+# time = []
+# height = []
+# descendantcount = []
+# descendantsize = []
+# descendantfees = []
+# ancestorcount = []
+# ancestorsize = []
+# ancestorfees = []
+# wtxid = []
+# fees = []
+# base = []
+# modified = []
+# ancestor = []
+# descendant = []
+# depends = []
+# spentby = []
+# bip125_replaceable = []
+# unbroadcast = []
+
+
 
 del stdin
