@@ -1,6 +1,7 @@
 import paramiko
 import secrets
 import pandas as pd
+import numpy as np
 
 host = secrets.host
 port = secrets.port
@@ -18,9 +19,14 @@ lines = stdout.readlines()
 
 print(lines)
 
-df = pd.DataFrame(lines, columns =['Name', 'Age'])
+df = pd.DataFrame(lines)
 
 df.to_csv('mempool/memdata.csv')
+length = len(lines)
+print(np.array_split(df, ))
+
+
+
 # transactionid = []
 # vsize = []
 # weight = []
