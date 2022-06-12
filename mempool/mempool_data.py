@@ -46,9 +46,24 @@ vsize = vsize_scraper()
 
 print(type(vsize))
 
-df = list(zip(fees,vsize))
 
-df2 = pd.DataFrame(df, columns=['fees','vsize'])
+def time_scraper():
+    time = '"time"'
+    lst = []
+    for x in lines:
+        if time in x:
+            lst.append(x)
+    return lst
+
+time = time_scraper()
+
+print(type(time))
+
+
+
+df = list(zip(fees,vsize,time))
+
+df2 = pd.DataFrame(df, columns=['fees','vsize', 'time'])
 
 df2.to_csv('mempool/memdata.csv')
 
