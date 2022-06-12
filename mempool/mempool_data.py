@@ -19,11 +19,40 @@ ssh.connect(host, port, username, password)
 stdin, stdout, stderr = ssh.exec_command(command)
 lines = stdout.readlines()
 
+print(len(lines))
 
-df = pd.DataFrame(lines)
+def fee_scraper():
+    fees = '"fee"'
+    lst = []
+    for x in lines:
+        if fees in x:
+            lst.append(x)
+    return lst
+
+fees = fee_scraper()
+
+print(type(fees))
 
 
-df.to_csv('mempool/memdata.csv')
+def vsize_scraper():
+    vsize = '"vsize"'
+    lst = []
+    for x in lines:
+        if vsize in x:
+            lst.append(x)
+    return lst
+
+vsize = vsize_scraper()
+
+print(type(vsize))
+
+df = list(zip(fees,vsize))
+
+df2 = pd.DataFrame(df, columns=['fees','vsize'])
+
+df2.to_csv('mempool/memdata.csv')
+
+# df.to_csv('mempool/memdata.csv')
 
 # print(len(lines))
 #
