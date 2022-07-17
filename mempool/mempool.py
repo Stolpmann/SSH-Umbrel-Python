@@ -6,7 +6,7 @@ port = secrets.port
 username = secrets.username
 password = secrets.password
 
-command = "docker exec bitcoin bitcoin-cli getrawmempool"
+command = "docker exec bitcoin_bitcoind_1 bitcoin-cli getrawmempool"
 
 
 ssh = paramiko.SSHClient()
@@ -38,7 +38,7 @@ x = str(x)
 x = x[1:-2]
 print("\n")
 
-command2 = f"docker exec bitcoin bitcoin-cli getrawtransaction {x} true"
+command2 = f"docker exec bitcoin_bitcoind_1 bitcoin-cli getrawtransaction {x} true"
 
 stdin, stdout, stderr = ssh.exec_command(command2)
 lines = stdout.readlines()
@@ -57,7 +57,7 @@ def equal(x):
 
 print(equal(x))
 
-command3 = "docker exec bitcoin bitcoin-cli getrawmempool true"
+command3 = "docker exec bitcoin_bitcoind_1 bitcoin-cli getrawmempool true"
 
 
 ssh = paramiko.SSHClient()

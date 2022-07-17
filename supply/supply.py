@@ -7,7 +7,7 @@ port = secrets.port
 username = secrets.username
 password = secrets.password
 
-command = "docker exec bitcoin bitcoin-cli gettxoutsetinfo"
+command = "docker exec bitcoin_bitcoind_1 bitcoin-cli gettxoutsetinfo"
 
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())

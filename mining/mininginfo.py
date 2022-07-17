@@ -17,7 +17,7 @@ networkhashps = []
 def scraper():
     x = 1
     while x < 25:
-        command = f"docker exec bitcoin bitcoin-cli getnetworkhashps -1 {x}"
+        command = f"docker exec bitcoin_bitcoind_1 bitcoin-cli getnetworkhashps -1 {x}"
         stdin, stdout, stderr = ssh.exec_command(command)
         hashps = stdout.readlines()
         print(hashps)

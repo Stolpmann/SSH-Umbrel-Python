@@ -10,7 +10,7 @@ password = secrets.password
 
 
 
-command = f"docker exec bitcoin bitcoin-cli getrawmempool true"
+command = f"docker exec bitcoin_bitcoind_1 bitcoin-cli getrawmempool true"
 
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())

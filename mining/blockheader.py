@@ -21,7 +21,7 @@ lst = []
 
 def getblockheader():
     for hash in hashes:
-        command = f"docker exec bitcoin bitcoin-cli getblockheader {hash}"
+        command = f"docker exec bitcoin_bitcoind_1 bitcoin-cli getblockheader {hash}"
         stdin, stdout, stderr = ssh.exec_command(command)
         lines = stdout.readlines()
         lst.append(lines)

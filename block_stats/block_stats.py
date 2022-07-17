@@ -8,7 +8,7 @@ port = secrets.port
 username = secrets.username
 password = secrets.password
 
-command = "docker exec bitcoin bitcoin-cli getblockcount"
+command = "docker exec bitcoin_bitcoind_1 bitcoin-cli getblockcount"
 
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -18,6 +18,7 @@ stdin, stdout, stderr = ssh.exec_command(command)
 
 # Gets block height
 blockheight = stdout.readlines()
+
 blockheight = int(blockheight[0])
 
 print(blockheight)
@@ -57,12 +58,13 @@ utxo_size_inc = []
 # calls rpc function and appends results to initialized
 
 def scraper():
-    x = 700000
+    x = 1
 
-    while x < 700500:
-        command2 = f"docker exec bitcoin bitcoin-cli getblockstats {x}"
+    while x < 500:
+        command2 = f"docker exec bitcoin_bitcoind_1 bitcoin-cli getblockstats {x}"
         stdin, stdout, stderr = ssh.exec_command(command2)
         blockstats = stdout.readlines()
+        print(blockstats)
         avgfee.append([blockstats[1]])
         avgfeerate.append([blockstats[2]])
         avgtxsize.append([blockstats[3]])
